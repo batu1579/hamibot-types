@@ -7,12 +7,11 @@
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended"
     ],
-    "overrides": [
-    ],
+    "overrides": [],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaVersion": "latest",
-        "sourceType": "module"
+        "sourceType": "script"
     },
     "plugins": [
         "@typescript-eslint"
@@ -28,11 +27,13 @@
         ],
         "quotes": [
             "error",
-            "double"
+            "single"
         ],
         "semi": [
             "error",
             "always"
-        ]
+        ],
+        "@typescript-eslint/no-explicit-any": "off",
+        "valid-jsdoc": "error"
     }
 }
