@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "module": "ES2015",
+        "lib": [
+            "ES5"
+        ],
+        "strict": true,
+        "noEmit": true,
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "strictFunctionTypes": true,
+        "strictNullChecks": true,
+        "forceConsistentCasingInFileNames": true,
+        "baseUrl": "../",
+        "typeRoots": [
+            "types"
+        ],
+        "allowJs": true,
+        "checkJs": true
+    }
+}
