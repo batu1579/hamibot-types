@@ -2,7 +2,8 @@
     "compilerOptions": {
         "module": "ES2015",
         "lib": [
-            "ES5"
+            "ES5",
+            "ES2015.Iterable"
         ],
         "strict": true,
         "noEmit": true,
