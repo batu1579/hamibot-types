@@ -421,29 +421,7 @@ declare module 'events' {
          * log("即将结束运行");
          * ```
          */
-        on(eventName: 'exit', listener: Function): this;
-
-        /**
-         * @description: 开启通知监听。例如QQ消息、微信消息、推送等通知。通知监听依赖于通知服务，如果通知服务没有运行，会抛出异常并跳转到通知权限开启界面。
-         * 
-         * **注意！：**
-         * 
-         * - 有时即使通知权限已经开启通知服务也没有运行，这时需要关闭权限再重新开启一次。
-         * 
-         * @example
-         * ```typescript
-         * events.obverseNotification();
-         * events.onNotification(function(notification){
-         *     log(notification.getText());
-         * });
-         * ```
-         */
-        observeNotification(): void;
-
-        /**
-         * @description: 开启 Toast 监听。 Toast 监听依赖于无障碍服务，因此此函数会确保无障碍服务运行。
-         */
-        observeToast(): void;
+        on(eventName: 'exit', listener: () => void): this;
 
         /**
          * @description: 当有应用发出 toast （气泡消息）时会触发该事件。但 Hamibot 软件本身的 toast 除外。
@@ -479,6 +457,28 @@ declare module 'events' {
          * ```
          */
         on(eventName: 'notification', listener: NotificationListener): this;
+
+        /**
+         * @description: 开启通知监听。例如QQ消息、微信消息、推送等通知。通知监听依赖于通知服务，如果通知服务没有运行，会抛出异常并跳转到通知权限开启界面。
+         * 
+         * **注意！：**
+         * 
+         * - 有时即使通知权限已经开启通知服务也没有运行，这时需要关闭权限再重新开启一次。
+         * 
+         * @example
+         * ```typescript
+         * events.obverseNotification();
+         * events.onNotification(function(notification){
+         *     log(notification.getText());
+         * });
+         * ```
+         */
+        observeNotification(): void;
+
+        /**
+         * @description: 开启 Toast 监听。 Toast 监听依赖于无障碍服务，因此此函数会确保无障碍服务运行。
+         */
+        observeToast(): void;
     }
 
     class Notification {

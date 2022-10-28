@@ -7,6 +7,10 @@
 
 ## [Unreleased]
 
+### Changed
+
+- 使方法重载声明相邻
+
 ## [0.0.1] - 2022-10-25
 
 - initial release

@@ -639,18 +639,6 @@ declare module 'threads' {
         await(): void;
 
         /**
-         * @description: 导致当前线程等待直到发出信号。
-         */
-        awaitUninterruptibly(): void;
-
-        /**
-         * @description: 导致当前线程等待，直到发出信号或中断，或者指定的等待时间过去。
-         * @param {Long} nanosTimeout 等待的最长时间，单位纳秒。
-         * @return {Long} 该方法返回在给定返回时提供的 `nanosTimeout` 值时等待的剩余纳秒数的估计值，或者如果超时则返回小于或等于零的值。 此值可用于确定在等待返回但等待条件仍未成立的情况下是否以及等待多长时间。
-         */
-        awaitNanos(nanosTimeout: Long): Long;
-
-        /**
          * @description: 导致当前线程等待，直到发出信号或中断，或者指定的等待时间过去。
          * 
          * 此方法在行为上等同于：
@@ -662,6 +650,18 @@ declare module 'threads' {
          * @return {boolean} 如果在从方法返回之前检测到等待时间返回 `false` 否则 `true` 。
          */
         await(time: Long, unit: TimeUnit): boolean;
+
+        /**
+         * @description: 导致当前线程等待直到发出信号。
+         */
+        awaitUninterruptibly(): void;
+
+        /**
+         * @description: 导致当前线程等待，直到发出信号或中断，或者指定的等待时间过去。
+         * @param {Long} nanosTimeout 等待的最长时间，单位纳秒。
+         * @return {Long} 该方法返回在给定返回时提供的 `nanosTimeout` 值时等待的剩余纳秒数的估计值，或者如果超时则返回小于或等于零的值。 此值可用于确定在等待返回但等待条件仍未成立的情况下是否以及等待多长时间。
+         */
+        awaitNanos(nanosTimeout: Long): Long;
 
         /**
          * @description: 导致当前线程等待，直到发出信号或中断，或者指定的截止时间过去。
