@@ -309,7 +309,7 @@ declare module 'events' {
          * - 此函数需要 root 权限。没有 root 权限调用该函数则什么也不会发生。
          * 
          */
-        observeKey(): void;
+        observeTouch(): void;
 
         /**
          * @description: 设置两个触摸事件分发的最小时间间隔。例如间隔为 10 毫秒的话，前一个触摸事件发生并被注册的监听器处理后，至少要过 10 毫秒才能分发和处理下一个触摸事件，这 10 毫秒之间的触摸将会被忽略。
