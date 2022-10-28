@@ -14,6 +14,10 @@
 ### Changed
 
 - 使方法重载声明相邻
+- 统一了一些类型：
+  
+  - `Function` -> `() -> void` 或 `(...args: any[]): any`
+  - `Object` -> `unknown`
 
 ## [0.0.1] - 2022-10-25
 

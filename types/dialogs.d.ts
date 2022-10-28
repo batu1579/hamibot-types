@@ -2,7 +2,7 @@
  * @Author: BATU1579
  * @CreateDate: 2022-07-26 09:44:33
  * @LastEditor: BATU1579
- * @LastTime: 2022-10-25 15:50:30
+ * @LastTime: 2022-10-28 15:52:23
  * @FilePath: \\types\\dialogs.d.ts
  * @Description: 对话框模块
  */
@@ -49,7 +49,7 @@ declare module 'dialogs' {
          * @description: 显示一个只包含'确定'按钮的提示对话框。直至用户点击确定脚本才继续运行。
          * @param {string} title 对话框的标题。
          * @param {string} [content] 对话框的内容（默认为空）。
-         * @param {Function} [callback] 回调函数。当用户点击确定时被调用,一般用于 ui 模式。
+         * @param {() => void} [callback] 回调函数。当用户点击确定时被调用,一般用于 ui 模式。
          * @return {void | Promise<void>}  ui 模式下该函数返回一个 Promise 。
          * @example
          * ```typescript
@@ -63,7 +63,7 @@ declare module 'dialogs' {
          * });
          * ```
          */
-        function alert(title: string, content?: string, callback?: Function): void | Promise<void>;
+        function alert(title: string, content?: string, callback?: () => void): void | Promise<void>;
 
         /**
          * @description: 显示一个包含'确定'和'取消'按钮的提示对话框。
@@ -123,7 +123,7 @@ declare module 'dialogs' {
          * @description: 显示一个只包含'确定'按钮的提示对话框。直至用户点击确定脚本才继续运行。
          * @param {string} title 对话框的标题。
          * @param {string} [content] 对话框的内容（默认为空）。
-         * @param {Function} [callback] 回调函数。当用户点击确定时被调用,一般用于 ui 模式。
+         * @param {() => void} [callback] 回调函数。当用户点击确定时被调用,一般用于 ui 模式。
          * @return {void | Promise<void>}  ui 模式下该函数返回一个 Promise 。
          * @example
          * ```typescript
@@ -137,7 +137,7 @@ declare module 'dialogs' {
          * });
          * ```
          */
-        alert(title: string, content?: string, callback?: Function): void | Promise<void>;
+        alert(title: string, content?: string, callback?: () => void): void | Promise<void>;
 
         /**
          * @description: 显示一个包含'确定'和'取消'按钮的提示对话框。

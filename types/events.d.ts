@@ -2,8 +2,8 @@
  * @Author: BATU1579
  * @CreateDate: 2022-07-26 11:23:12
  * @LastEditor: BATU1579
- * @LastTime: 2022-09-11 10:23:04
- * @FilePath: \\src\\types\\events.d.ts
+ * @LastTime: 2022-10-28 15:53:41
+ * @FilePath: \\types\\events.d.ts
  * @Description: 事件模块
  */
 declare module 'events' {
@@ -586,10 +586,10 @@ declare module 'events' {
          * - 多次调用并传入相同的 `eventName` 和 `listener` 会导致 `listener` 被添加与调用多次。
          * 
          * @param {string} eventName 事件名称。
-         * @param {Function} listener 当事件发生时要执行的回调函数。
+         * @param {Callback} listener 当事件发生时要执行的回调函数。
          * @return {this} 返回自身以便链式调用。
          */
-        addListener(eventName: string, listener: Function): this;
+        addListener(eventName: string, listener: Callback): this;
 
         /**
          * @description: 按监听器的注册顺序，同步地调用每个注册到名为 eventName 事件的监听器，并传入提供的参数。
@@ -633,7 +633,7 @@ declare module 'events' {
         /**
          * @description: 获取注册在名为 `eventName` 的事件的全部监听器数组的副本。
          * @param {string} eventName 要查询的事件名。
-         * @return {Function[]} 名为 `eventName` 的事件的全部监听器数组的副本。
+         * @return {Callback[]} 名为 `eventName` 的事件的全部监听器数组的副本。
          * @example
          * ```typescript
          * server.on('connection', (stream) => {
@@ -643,7 +643,7 @@ declare module 'events' {
          * // 打印: [ [Function] ]
          * ```
          */
-        listeners(eventName: string): Function[];
+        listeners(eventName: string): Callback[];
 
         /**
          * @description: 添加 `listener` 函数到名为 `eventName` 的事件的监听器数组的末尾。
@@ -655,7 +655,7 @@ declare module 'events' {
          * - 多次调用并传入相同的 `eventName` 和 `listener` 会导致 `listener` 被添加与调用多次。
          * 
          * @param {string} eventName 事件名称。
-         * @param {Function} listener 当事件发生时要执行的回调函数。
+         * @param {Callback} listener 当事件发生时要执行的回调函数。
          * @return {this} 返回自身以便链式调用。
          * @example
          * ```typescript
@@ -674,7 +674,7 @@ declare module 'events' {
          * //   a
          * ```
          */
-        on(eventName: string, listener: Function): this;
+        on(eventName: string, listener: Callback): this;
 
         /**
          * @description: 添加一个单次 `listener` 函数到名为 `eventName` 的事件的监听器数组的末尾。下次触发 eventName 事件时，监听器会被移除，然后调用。
@@ -686,7 +686,7 @@ declare module 'events' {
          * - 多次调用并传入相同的 `eventName` 和 `listener` 会导致 `listener` 被添加与调用多次。
          * 
          * @param {string} eventName 事件名称。
-         * @param {Function} listener 当事件发生时要执行的回调函数。
+         * @param {Callback} listener 当事件发生时要执行的回调函数。
          * @return {this} 返回自身以便链式调用。
          * @example
          * ```typescript
@@ -705,7 +705,7 @@ declare module 'events' {
          * //   a
          * ```
          */
-        once(eventName: string, listener: Function): this;
+        once(eventName: string, listener: Callback): this;
 
         /**
          * @description: 添加 `listener` 函数到名为 `eventName` 的事件的监听器数组的开头。
@@ -715,7 +715,7 @@ declare module 'events' {
          * - 多次调用并传入相同的 `eventName` 和 `listener` 会导致 `listener` 被添加与调用多次。
          * 
          * @param {string} eventName 事件名称。
-         * @param {Function} listener 当事件发生时要执行的回调函数。
+         * @param {Callback} listener 当事件发生时要执行的回调函数。
          * @return {this} 返回自身以便链式调用。
          * @example
          * ```typescript
@@ -724,7 +724,7 @@ declare module 'events' {
          * });
          * ```
          */
-        prependListener(eventName: string, listener: Function): this;
+        prependListener(eventName: string, listener: Callback): this;
 
         /**
          * @description: 添加一个单次 `listener` 函数到名为 `eventName` 的事件的监听器数组的开头。下次触发 `eventName` 事件时，监听器会被移除，然后调用。
@@ -734,7 +734,7 @@ declare module 'events' {
          * - 多次调用并传入相同的 `eventName` 和 `listener` 会导致 `listener` 被添加与调用多次。
          * 
          * @param {string} eventName 事件名称。
-         * @param {Function} listener 当事件发生时要执行的回调函数。
+         * @param {Callback} listener 当事件发生时要执行的回调函数。
          * @return {this} 返回自身以便链式调用。
          * @example
          * ```typescript
@@ -743,7 +743,7 @@ declare module 'events' {
          * });
          * ```
          */
-        prependOnceListener(eventName: string, listener: Function): this;
+        prependOnceListener(eventName: string, listener: Callback): this;
 
         /**
          * @description: 移除全部或指定 `eventName` 的监听器。
@@ -769,7 +769,7 @@ declare module 'events' {
          * - 一旦一个事件被触发，所有绑定到它的监听器都会按顺序依次触发。 这意味着，在事件触发后、最后一个监听器完成执行前，任何 `removeListener()` 或 `removeAllListeners()` 调用都不会从 `emit()` 中移除它们。 随后的事件会像预期的那样发生。
          * 
          * @param {string} eventName 事件名称。
-         * @param {Function} listener 要移除的监听器。
+         * @param {Callback} listener 要移除的监听器。
          * @return {this} 返回自身以便链式调用。
          * @example
          * ```typescript
@@ -781,7 +781,7 @@ declare module 'events' {
          * server.removeListener('connection', callback);
          * ```
          */
-        removeListener(eventName: string, listener: Function): this;
+        removeListener(eventName: string, listener: Callback): this;
 
         /**
          * @description: 默认情况下，如果为特定事件添加了超过 10 个监听器，则 `EventEmitter` 会打印一个警告。 此限制有助于寻找内存泄露。 但是，并不是所有的事件都要被限为 10 个。 `emitter.setMaxListeners()` 方法允许修改指定的 `EventEmitter` 实例的限制。 值设为 Infinity（或 0）表明不限制监听器的数量。
@@ -858,4 +858,6 @@ declare module 'events' {
          */
         notification: Notification
     ) => any;
+
+    type Callback = (...args: any[]) => void;
 }
