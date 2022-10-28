@@ -19,6 +19,12 @@
   - `Function` -> `() -> void` 或 `(...args: any[]): any`
   - `Object` -> `unknown`
 
+## [0.1.0] - 2022-10-26
+
+### Added
+
+- 添加了除 `canvas` 和 `util` 模块以外大部分内置函数的类型声明
+
 ## [0.0.1] - 2022-10-25
 
 - initial release
@@ -30,5 +36,6 @@
 
 <!-- Versions -->
 
-[unreleased]: https://github.com/batu1579/hamibot-types/compare/v0.0.1...HEAD
+[unreleased]: https://github.com/batu1579/hamibot-types/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/batu1579/hamibot-types/compare/v0.0.1..v0.1.0
 [0.0.1]: https://github.com/batu1579/hamibot-types/releases/tag/v0.0.1
