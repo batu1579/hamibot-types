@@ -7,6 +7,8 @@
 
 ## [Unreleased]
 
+## [0.1.1] - 2022-10-29
+
 ### Fixed
 
 - 修复没有启用屏幕触摸监听方法的问题
@@ -37,6 +39,7 @@
 
 <!-- Versions -->
 
-[unreleased]: https://github.com/batu1579/hamibot-types/compare/v0.1.0...HEAD
+[unreleased]: https://github.com/batu1579/hamibot-types/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/batu1579/hamibot-types/compare/v0.1.0..v0.1.1
 [0.1.0]: https://github.com/batu1579/hamibot-types/compare/v0.0.1..v0.1.0
 [0.0.1]: https://github.com/batu1579/hamibot-types/releases/tag/v0.0.1
