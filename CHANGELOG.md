@@ -7,6 +7,31 @@
 
 ## [Unreleased]
 
+### Fixed
+
+- 修复被误当成属性的 UIObject 方法
+
+  - checked
+  - packageName
+  - className
+  - checkable
+  - focusable
+  - focused
+  - selected
+  - clickable
+  - longClickable
+  - enabled
+  - password
+  - scrollable
+
+- 删除不存在的 UIObject 属性
+
+  - boundsInScreen
+
+- 添加遗漏的 UIObject 属性
+
+  - desc
+
 ## [0.1.1] - 2022-10-29
 
 ### Fixed
