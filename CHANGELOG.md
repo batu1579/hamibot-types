@@ -7,6 +7,33 @@
 
 ## [Unreleased]
 
+## [0.1.2] - 2022-11-19
+
+### Fixed
+
+- 修复被误当成属性的 UIObject 方法
+
+  - checked
+  - packageName
+  - className
+  - checkable
+  - focusable
+  - focused
+  - selected
+  - clickable
+  - longClickable
+  - enabled
+  - password
+  - scrollable
+
+- 删除不存在的 UIObject 属性
+
+  - boundsInScreen
+
+- 添加遗漏的 UIObject 属性
+
+  - desc
+
 ## [0.1.1] - 2022-10-29
 
 ### Fixed
@@ -39,7 +66,8 @@
 
 <!-- Versions -->
 
-[unreleased]: https://github.com/batu1579/hamibot-types/compare/v0.1.1...HEAD
+[unreleased]: https://github.com/batu1579/hamibot-types/compare/v0.1.2...HEAD
+[0.1.2]: https://github.com/batu1579/hamibot-types/compare/v0.1.1..v0.1.2
 [0.1.1]: https://github.com/batu1579/hamibot-types/compare/v0.1.0..v0.1.1
 [0.1.0]: https://github.com/batu1579/hamibot-types/compare/v0.0.1..v0.1.0
 [0.0.1]: https://github.com/batu1579/hamibot-types/releases/tag/v0.0.1
