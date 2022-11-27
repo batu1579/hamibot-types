@@ -43,6 +43,30 @@ git subtree pull --prefix=hamibot-types git@github.com:batu1579/hamibot-types.gi
 git push
 ```
 
+## 🛠️ 迁移说明
+
+如果你当前的项目正在使用老版本的模板，可以选择手动更新到新的类型声明（后续会更新模板）。你只需要完成下面几个步骤：
+
+1. 删除原来模板中携带的 `types` 文件夹
+
+2. 使用前文提到的方式 [通过脚本获取](#通过脚本获取) 或 [通过 Git 获取](#使用-git-获取)
+
+3. 打开根目录中的 `tsconfig.json` 文件，将其中 `typeRoots` 数组中的 `types` 修改为 `**\types` :
+
+    ```js
+    {
+        "compilerOptions": {
+            ...
+            "typeRoots": [
+                "types",    // 将这行
+                "**/types", // 修改为这行
+                "node_modules/@types"
+            ],
+            ...
+        }
+    }
+    ```
+
 ## 📋 更新日志
 
 查看 [更新日志]
