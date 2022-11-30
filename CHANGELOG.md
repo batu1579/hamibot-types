@@ -7,6 +7,12 @@
 
 ## [Unreleased]
 
+### Fixed
+
+- 添加遗漏的 UISelector 方法：
+
+  - indexInParent
+
 ## [0.1.2] - 2022-11-19
 
 ### Fixed

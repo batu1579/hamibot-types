@@ -398,6 +398,12 @@ declare module 'widget-operation' {
             idMatches(reg: RegExp | string): this;
 
             /**
+             * @description: 为当前选择器附加在父控件中的顺序等于 `i` 的筛选条件。
+             * @return {this} 返回选择器自身以便链式调用。
+             */
+            indexInParent(i: number): this;
+
+            /**
              * @description: 为当前选择器附加控件 `className` 等于字符串 `str` 的筛选条件。控件的 `className` （类名）表示一个控件的类别，例如文本控件的类名为 `android.widget.TextView` 。如果一个控件的类名以 `android.widget.` 开头，则可以省略这部分，例如文本控件可以直接用 `className('TextView')` 的选择器。
              * @param {string} str 控件 `className` 属性。
              * @return {this} 返回选择器自身以便链式调用。
@@ -1611,7 +1617,13 @@ declare module 'widget-operation' {
         function idMatches(reg: RegExp | string): UiSelector;
 
         /**
-         * @description: 为当前选择器附加控件 `className` 等于字符串 `str` 的筛选条件。控件的 `className` （类名）表示一个控件的类别，例如文本控件的类名为 `android.widget.TextView` 。如果一个控件的类名以 `android.widget.` 开头，则可以省略这部分，例如文本控件可以直接用 `className('TextView')` 的选择器。
+         * @description: 创建一个条件为在父控件中的顺序等于 `i` 的选择器。
+         * @return {this} 返回选择器自身以便链式调用。
+         */
+        function indexInParent(i: number): UiSelector;
+
+        /**
+         * @description: 创建一个条件为控件 `className` 等于字符串 `str` 的选择器。控件的 `className` （类名）表示一个控件的类别，例如文本控件的类名为 `android.widget.TextView` 。如果一个控件的类名以 `android.widget.` 开头，则可以省略这部分，例如文本控件可以直接用 `className('TextView')` 的选择器。
          * @param {string} str 控件 `className` 属性。
          * @return {UiSelector} 返回选择器自身以便链式调用。
          */
