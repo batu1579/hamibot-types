@@ -7,6 +7,16 @@
 
 ## [Unreleased]
 
+## [0.1.3] - 2022-12-04
+
+### Fixed
+
+- 添加遗漏的 UISelector 方法：
+
+  - indexInParent
+
+- 修复控件操作中点按相关操作的返回值类型
+
 ## [0.1.2] - 2022-11-19
 
 ### Fixed
@@ -66,7 +76,8 @@
 
 <!-- Versions -->
 
-[unreleased]: https://github.com/batu1579/hamibot-types/compare/v0.1.2...HEAD
+[unreleased]: https://github.com/batu1579/hamibot-types/compare/v0.1.3...HEAD
+[0.1.3]: https://github.com/batu1579/hamibot-types/compare/v0.1.2..v0.1.3
 [0.1.2]: https://github.com/batu1579/hamibot-types/compare/v0.1.1..v0.1.2
 [0.1.1]: https://github.com/batu1579/hamibot-types/compare/v0.1.0..v0.1.1
 [0.1.0]: https://github.com/batu1579/hamibot-types/compare/v0.0.1..v0.1.0
