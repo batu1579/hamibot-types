@@ -2,7 +2,7 @@
  * @Author: Hamibot hello@hamibot.com
  * @CreateDate: 2022-06-09 13:31:43
  * @LastEditors: BATU1579
- * @LastTime: 2023-04-14 15:15:23
+ * @LastTime: 2023-04-14 15:27:29
  * @FilePath: \\types\\http.d.ts
  * @Description: 网络操作模块
  * 
@@ -233,14 +233,14 @@ declare module 'http' {
          * 
          * [HTTP Headers]: https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers
          */
-        headers: object;
+        headers?: object;
 
         /**
          * @description: HTTP 头部信息中的'Content-Type', 表示 HTTP 请求的内容类型。例如'text/plain', 'application/json'。更多信息参见 [Content-Type] 。
          * 
          * [Content-Type]: https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Content-Type
          */
-        contentType: ContentType;
+        contentType?: ContentType;
 
         // TODO: 明确函数定义。
         /**
@@ -248,6 +248,7 @@ declare module 'http' {
          * 
          * [BufferedSink]: https://github.com/square/okio/blob/master/okio/src/main/java/okio/BufferedSink.java
          */
+        body?: string | ByteArray | ((buffer: unknown) => void);
     }
 
     interface HttpRequestOptionsWithMethod extends HttpRequestOptions {
