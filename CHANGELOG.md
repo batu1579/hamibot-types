@@ -7,9 +7,15 @@
 
 ## [Unreleased]
 
+### Changed
+
+- 收窄收窄响应接口中 http 方法的类型:
+
+  - `string` -> `MethodType`
+
 ### Fixed
 
-- 添加遗漏的 getClip 函数 [#6](https://github.com/batu1579/hamibot-types/issues/6)
+- 添加遗漏的 `getClip()` 函数 [#6](https://github.com/batu1579/hamibot-types/issues/6)
 
 ## [0.1.3] - 2022-12-04
 

@@ -2,7 +2,7 @@
  * @Author: Hamibot hello@hamibot.com
  * @CreateDate: 2022-06-09 13:31:43
  * @LastEditors: BATU1579
- * @LastTime: 2022-10-28 15:41:46
+ * @LastTime: 2023-04-14 14:58:40
  * @FilePath: \\types\\http.d.ts
  * @Description: 网络操作模块
  * 
@@ -223,7 +223,7 @@ declare module 'http' {
         /**
          * @description: 当前响应所对应的 HTTP 请求的方法。例如'GET', 'POST', 'PUT'等。
          */
-        readonly method: string;
+        readonly method: MethodType;
     }
 
     interface HttpRequestOptions {
@@ -237,17 +237,7 @@ declare module 'http' {
         /**
          * @description: HTTP 请求方法。
          */
-        method: (
-            'GET' |
-            'POST' |
-            'PUT' |
-            'DELETE' |
-            'PATCH' |
-            'OPTIONS' |
-            'HEAD' |
-            'TRACE' |
-            'CONNECT'
-        );
+        method: MethodType;
 
         /**
          * @description: HTTP 头部信息中的'Content-Type', 表示 HTTP 请求的内容类型。例如'text/plain', 'application/json'。更多信息参见 [Content-Type] 。
@@ -298,3 +288,14 @@ declare module 'http' {
         readonly contentType: string;
     }
 }
+
+type MethodType =
+    | 'GET'
+    | 'POST'
+    | 'PUT'
+    | 'DELETE'
+    | 'PATCH'
+    | 'OPTIONS'
+    | 'HEAD'
+    | 'TRACE'
+    | 'CONNECT'
