@@ -2,7 +2,7 @@
  * @Author: BATU1579
  * @CreateDate: 2022-05-25 00:21:22
  * @LastEditor: BATU1579
- * @LastTime: 2023-04-07 12:48:10
+ * @LastTime: 2022-10-25 15:49:23
  * @FilePath: \\types\\global.d.ts
  * @Description: 全局函数和变量
  */
@@ -48,12 +48,6 @@ declare module 'global' {
          * @param {string} text 剪贴板内容。
          */
         function setClip(text: string): void;
-
-        /**
-         * @description: 获取剪切板内容。
-         * @return {string} 剪切板内容的字符串。
-         */
-        function getClip(): string;
 
         /**
          * @description: 以气泡显示信息 `message` 几秒。（具体时间取决于安卓系统，一般都是 2 秒）。
