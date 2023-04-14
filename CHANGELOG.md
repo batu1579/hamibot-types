@@ -7,6 +7,8 @@
 
 ## [Unreleased]
 
+## [0.1.4] - 2023-04-14
+
 ### Changed
 
 - 收窄响应接口中 http 方法的类型
@@ -89,7 +91,8 @@
 
 <!-- Versions -->
 
-[unreleased]: https://github.com/batu1579/hamibot-types/compare/v0.1.3...HEAD
+[unreleased]: https://github.com/batu1579/hamibot-types/compare/v0.1.4...HEAD
+[0.1.4]: https://github.com/batu1579/hamibot-types/compare/v0.1.3..v0.1.4
 [0.1.3]: https://github.com/batu1579/hamibot-types/compare/v0.1.2..v0.1.3
 [0.1.2]: https://github.com/batu1579/hamibot-types/compare/v0.1.1..v0.1.2
 [0.1.1]: https://github.com/batu1579/hamibot-types/compare/v0.1.0..v0.1.1
