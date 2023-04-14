@@ -18,6 +18,7 @@
 - 修复可以重复配置请求方法的问题
 - 修复使用 `Response.body.json()` 方法时没办法使用解包语法直接获取到对应的数据的问题
 - 修复 `HttpRequestOptions` 中的字段为必填的问题 [#8](https://github.com/batu1579/hamibot-types/issues/8)
+- 添加 `events.addListener()` 方法中 `eventName` 参数的提示 [#9](https://github.com/batu1579/hamibot-types/issues/9)
 
 ## [0.1.3] - 2022-12-04
 
