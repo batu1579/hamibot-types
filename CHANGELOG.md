@@ -15,6 +15,7 @@
 ### Fixed
 
 - 添加遗漏的 `getClip()` 函数 [#6](https://github.com/batu1579/hamibot-types/issues/6)
+- 修复可以重复配置请求方法的问题
 
 ## [0.1.3] - 2022-12-04
 

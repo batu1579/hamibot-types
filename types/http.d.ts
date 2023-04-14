@@ -2,7 +2,7 @@
  * @Author: Hamibot hello@hamibot.com
  * @CreateDate: 2022-06-09 13:31:43
  * @LastEditors: BATU1579
- * @LastTime: 2023-04-14 14:58:40
+ * @LastTime: 2023-04-14 15:15:23
  * @FilePath: \\types\\http.d.ts
  * @Description: 网络操作模块
  * 
@@ -159,7 +159,7 @@ declare module 'http' {
          * @param {function} [callback] 回调函数。参数为 `Response` 对象。返回值为 any 。如果不加回调函数，则该请求将阻塞、同步地执行。
          * @return {Response} 请求的响应对象
          */
-        request(url: string, options?: HttpRequestOptions, callback?: (res: Response) => any): Response;
+        request(url: string, options?: HttpRequestOptionsWithMethod, callback?: (res: Response) => any): Response;
     }
 
     /**
@@ -235,11 +235,6 @@ declare module 'http' {
         headers: object;
 
         /**
-         * @description: HTTP 请求方法。
-         */
-        method: MethodType;
-
-        /**
          * @description: HTTP 头部信息中的'Content-Type', 表示 HTTP 请求的内容类型。例如'text/plain', 'application/json'。更多信息参见 [Content-Type] 。
          * 
          * [Content-Type]: https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Content-Type
@@ -252,7 +247,13 @@ declare module 'http' {
          * 
          * [BufferedSink]: https://github.com/square/okio/blob/master/okio/src/main/java/okio/BufferedSink.java
          */
-        body: string | ByteArray | ((buffer: unknown) => void);
+    }
+
+    interface HttpRequestOptionsWithMethod extends HttpRequestOptions {
+        /**
+         * @description: HTTP 请求方法。
+         */
+        method: MethodType;
     }
 
     // TODO: 检查多文件传输的情况
