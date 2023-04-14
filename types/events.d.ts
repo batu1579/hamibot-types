@@ -2,7 +2,7 @@
  * @Author: BATU1579
  * @CreateDate: 2022-07-26 11:23:12
  * @LastEditor: BATU1579
- * @LastTime: 2022-10-28 15:53:41
+ * @LastTime: 2023-04-14 22:16:54
  * @FilePath: \\types\\events.d.ts
  * @Description: 事件模块
  */
@@ -459,6 +459,137 @@ declare module 'events' {
         on(eventName: 'notification', listener: NotificationListener): this;
 
         /**
+         * @description: 添加 `listener` 函数到名为 `eventName` 的事件的监听器数组的末尾。
+         * 
+         * **注意！：**
+         * 
+         * - 多次调用并传入相同的 `eventName` 和 `listener` 会导致 `listener` 被添加与调用多次。
+         * 
+         * @param {string} eventName 事件名称。
+         * @param {Callback} listener 当事件发生时要执行的回调函数。
+         * @return {this} 返回自身以便链式调用。
+         */
+        on(eventName: string, listener: Callback): this;
+
+        /**
+         * @description: 当有按键被按下或弹起时触发的事件。 
+         * @param {string} eventName 事件名称（ `key` ）。
+         * @param {KeyListener} listener 当事件发生时要执行的回调函数。
+         * @return {this} 返回自身以便链式调用。
+         * @example
+         * ```typescript
+         * auto();
+         * events.observeKey();
+         * events.on("key", function(keyCode, event){
+         *     if(keyCode == keys.menu && event.getAction() == event.ACTION_UP){
+         *         toast("菜单键按下");
+         *     }
+         * });
+         * ```
+         */
+        addListener(eventName: 'key', listener: KeyListener): this;
+
+        /**
+         * @description: 当有按键被按下时触发的事件。 
+         * @param {string} eventName 事件名称（ `key_down` ）。
+         * @param {KeyListener} listener 当事件发生时要执行的回调函数。
+         * @return {this} 返回自身以便链式调用。
+         * @example
+         * ```typescript
+         * auto();
+         * events.observeKey();
+         * events.on("key_down", function(keyCode, event){
+         *     // 处理按键按下事件
+         * });
+         * ```
+         */
+        addListener(eventName: 'key_down', listener: KeyListener): this;
+
+        /**
+         * @description: 当有按键弹起时触发的事件。 
+         * @param {string} eventName 事件名称（ `key_up` ）。
+         * @param {KeyListener} listener 当事件发生时要执行的回调函数。
+         * @return {this} 返回自身以便链式调用。
+         * @example
+         * ```typescript
+         * auto();
+         * events.observeKey();
+         * events.on("key_up", function(keyCode, event){
+         *     // 处理按键按下事件
+         * });
+         * ```
+         */
+        addListener(eventName: 'key_up', listener: KeyListener): this;
+
+        /**
+         * @description: 当脚本正常或者异常退出时会触发该事件。事件处理中如果有异常抛出，则立即中止 exit 事件的处理（即使 exit 事件有多个处理函数）并在控制台和日志中打印该异常。
+         * 
+         * 一个脚本停止运行时，会关闭该脚本的所有悬浮窗，触发 exit 事件，之后再回收资源。如果 exit 事件的处理中有死循环，则后续资源无法得到及时回收。 此时脚本会停留在任务列表，如果在任务列表中关闭，则会强制结束exit事件的处理并回收后续资源。
+         * @param {string} eventName 事件名称（ `exit` ）。
+         * @param {Function} listener 当事件发生时要执行的回调函数。
+         * @return {this} 返回自身以便链式调用。
+         * @example
+         * ```typescript
+         * log("开始运行")
+         * events.on("exit", function(){
+         *     log("结束运行");
+         * });
+         * log("即将结束运行");
+         * ```
+         */
+        addListener(eventName: 'exit', listener: () => void): this;
+
+        /**
+         * @description: 当有应用发出 toast （气泡消息）时会触发该事件。但 Hamibot 软件本身的 toast 除外。
+         * @param {string} eventName 事件名称（ `toast` ）。
+         * @param {ToastListener} listener 当事件发生时要执行的回调函数。
+         * @return {this} 返回自身以便链式调用。
+         * @example
+         * ```typescript
+         * events.observeToast();
+         * events.onToast(function(toast) {
+         *     log("Toast内容: " + toast.getText() + " 包名: " + toast.getPackageName());
+         * });
+         * ```
+         */
+        addListener(eventName: 'toast', listener: ToastListener): this;
+
+        /**
+         * @description: 当有应用发出通知时会触发该事件。
+         * @param {string} eventName 事件名称（ `notification` ）。
+         * @param {ToastListener} listener 当事件发生时要执行的回调函数。
+         * @return {this} 返回自身以便链式调用。
+         * @example
+         * ```typescript
+         * events.observeNotification();
+         * events.on("notification", function(n) {
+         *     log(
+         *         "收到新通知:\n 标题: %s, 内容: %s, \n包名: %s",
+         *         n.getTitle(),
+         *         n.getText(),
+         *         n.getPackageName()
+         *     );
+         * });
+         * ```
+         */
+        addListener(eventName: 'notification', listener: NotificationListener): this;
+
+        /**
+         * @description: 添加 `listener` 函数到名为 `eventName` 的事件的监听器数组的末尾。
+         * 
+         * 此函数是 `emitter.on(eventName, listener)` 的别名。
+         * 
+         * **注意！：**
+         * 
+         * - 多次调用并传入相同的 `eventName` 和 `listener` 会导致 `listener` 被添加与调用多次。
+         * 
+         * @param {string} eventName 事件名称。
+         * @param {Callback} listener 当事件发生时要执行的回调函数。
+         * @return {this} 返回自身以便链式调用。
+         */
+        addListener(eventName: string, listener: Callback): this;
+
+        /**
          * @description: 开启通知监听。例如QQ消息、微信消息、推送等通知。通知监听依赖于通知服务，如果通知服务没有运行，会抛出异常并跳转到通知权限开启界面。
          * 
          * **注意！：**
@@ -859,5 +990,5 @@ declare module 'events' {
         notification: Notification
     ) => any;
 
-    type Callback = (...args: any[]) => void;
+    type Callback = (...args: any[]) => any;
 }
