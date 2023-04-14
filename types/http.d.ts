@@ -213,6 +213,7 @@ declare module 'http' {
         /**
          * @description: 当前响应所对应的请求。
          */
+        // TODO(BATU1579): 查看具体的成员。
         readonly request: object;
 
         /**
@@ -281,7 +282,9 @@ declare module 'http' {
         /**
          * @description: 把响应内容作为 JSON 格式的数据并调用 JSON.parse，返回解析后的对象
          */
-        json(): object;
+        json(): {
+            [prop: string]: any
+        };
 
         /**
          * @description: 当前响应的内容类型
