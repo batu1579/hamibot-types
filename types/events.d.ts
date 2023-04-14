@@ -2,7 +2,7 @@
  * @Author: BATU1579
  * @CreateDate: 2022-07-26 11:23:12
  * @LastEditor: BATU1579
- * @LastTime: 2023-04-14 17:46:43
+ * @LastTime: 2023-04-14 21:50:28
  * @FilePath: \\types\\events.d.ts
  * @Description: 事件模块
  */
@@ -459,6 +459,19 @@ declare module 'events' {
         on(eventName: 'notification', listener: NotificationListener): this;
 
         /**
+         * @description: 添加 `listener` 函数到名为 `eventName` 的事件的监听器数组的末尾。
+         * 
+         * **注意！：**
+         * 
+         * - 多次调用并传入相同的 `eventName` 和 `listener` 会导致 `listener` 被添加与调用多次。
+         * 
+         * @param {string} eventName 事件名称。
+         * @param {Callback} listener 当事件发生时要执行的回调函数。
+         * @return {this} 返回自身以便链式调用。
+         */
+        on(eventName: string, listener: Callback): this;
+
+        /**
          * @description: 当有按键被按下或弹起时触发的事件。 
          * @param {string} eventName 事件名称（ `key` ）。
          * @param {KeyListener} listener 当事件发生时要执行的回调函数。
@@ -560,6 +573,21 @@ declare module 'events' {
          * ```
          */
         addListener(eventName: 'notification', listener: NotificationListener): this;
+
+        /**
+         * @description: 添加 `listener` 函数到名为 `eventName` 的事件的监听器数组的末尾。
+         * 
+         * 此函数是 `emitter.on(eventName, listener)` 的别名。
+         * 
+         * **注意！：**
+         * 
+         * - 多次调用并传入相同的 `eventName` 和 `listener` 会导致 `listener` 被添加与调用多次。
+         * 
+         * @param {string} eventName 事件名称。
+         * @param {Callback} listener 当事件发生时要执行的回调函数。
+         * @return {this} 返回自身以便链式调用。
+         */
+        addListener(eventName: string, listener: Callback): this;
 
         /**
          * @description: 开启通知监听。例如QQ消息、微信消息、推送等通知。通知监听依赖于通知服务，如果通知服务没有运行，会抛出异常并跳转到通知权限开启界面。
@@ -962,5 +990,5 @@ declare module 'events' {
         notification: Notification
     ) => any;
 
-    type Callback = (...args: any[]) => void;
+    type Callback = (...args: any[]) => any;
 }
