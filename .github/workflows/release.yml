@@ -63,7 +63,7 @@ jobs:
             
           # Path to load note-worthy description of changes in release from
           files: |
-            ${{ var.PACKAGE_FILE_NAME }}
+            ${{ vars.PACKAGE_FILE_NAME }}
           # Fails if any of the `files` globs match nothing. Defaults to false
           fail_on_unmatched_files: true
           # Authorized secret GitHub Personal Access Token. Defaults to github.token
