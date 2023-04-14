@@ -1,0 +1,77 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+    
+jobs:
+
+  merge_branch:
+    name: Merge Branch
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Merge dev -> main
+        # You may pin to the exact commit or the version.
+        # uses: devmasx/merge-branch@854d3ac71ed1e9deb668e0074781b81fdd6e771f
+        uses: devmasx/merge-branch@1.4.0
+        with:
+          # 
+          type: now
+          # The name of target branch to merge
+          target_branch: main
+          # Alias head_to_merge input
+          from_branch: dev
+          # Github token
+          github_token: ${{ secrets.ACCESS_TOKEN }}
+          
+  release:
+    name: Release New Version
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Wrap Up types into hamibot-types.tar.gz
+        run: |
+          tar zcvf ${{ vars.PACKAGE_FILE_NAME }} types
+          
+      - name: Build Release Changelog
+        id: release_changelog
+        # You may pin to the exact commit or the version.
+        # uses: mikepenz/release-changelog-builder-action@f7dd0f5932037ca4fff56395ffb04837fd97851a
+        uses: mikepenz/release-changelog-builder-action@v3.7.1
+        with:
+          # Defines if the action should result in a build failure, if an error was discovered
+          failOnError: true
+          # Will enable fetching release information for the tags. E.g. creation date
+          fetchReleaseInformation: true
+          # Defines the token to use to execute the git API requests with, uses `env.GITHUB_TOKEN` by default
+          token: ${{ secrets.ACCESS_TOKEN }}
+      
+      - name: GH Release
+        # You may pin to the exact commit or the version.
+        # uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844
+        uses: softprops/action-gh-release@v0.1.15
+        with:
+          # Note-worthy description of changes in release
+          body: |
+            ${{ steps.release_changelog.outputs.changelog }}
+            
+            For more details, please check [ChangeLog.md](https://github.com/batu1579/hamibot-types/blob/main/CHANGELOG.md)
+            
+          # Path to load note-worthy description of changes in release from
+          files: |
+            ${{ var.PACKAGE_FILE_NAME }}
+          # Fails if any of the `files` globs match nothing. Defaults to false
+          fail_on_unmatched_files: true
+          # Authorized secret GitHub Personal Access Token. Defaults to github.token
+          token: ${{ secrets.ACCESS_TOKEN }}
+          # Whether to automatically generate the name and body for this release. If name is specified, the specified name will be used; otherwise, a name will be automatically generated. If body is specified, the body will be pre-pended to the automatically generated notes.
+          generate_release_notes: false
+          # Append to existing body instead of overwriting it. Default is false.
+          append_body: false
+      
+      
+  
