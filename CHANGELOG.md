@@ -9,9 +9,8 @@
 
 ### Changed
 
-- 收窄收窄响应接口中 http 方法的类型:
-
-  - `string` -> `MethodType`
+- 收窄响应接口中 http 方法的类型
+- 收窄 `contentType` 的类型
 
 ### Fixed
 
