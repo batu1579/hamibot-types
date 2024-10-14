@@ -1003,6 +1003,11 @@ declare module 'widget-operation' {
             packageName(): string;
 
             /**
+             * @description: 获取控件在父组件中的索引。
+             */
+            indexInParent(): number;
+
+            /**
              * @description: 获取控件的 `className` 属性。
              */
             className(): string;
