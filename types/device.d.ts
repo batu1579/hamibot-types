@@ -2,8 +2,8 @@
  * @Author: BATU1579
  * @CreateDate: 2022-06-03 01:55:44
  * @LastEditor: BATU1579
- * @LastTime: 2022-09-11 10:51:46
- * @FilePath: \\src\\types\\device.d.ts
+ * @LastTime: 2024-09-23 15:14:13
+ * @FilePath: \\types\\device.d.ts
  * @Description: device 模块
  */
 declare module 'device' {
@@ -88,7 +88,7 @@ declare module 'device' {
         /**
          * @description: Android 系统版本号。例如 '5.0' , '7.1.1' 。
          */
-        readonly releases: string;
+        readonly release: string;
 
         /**
          * @description: 产品构建所基于的操作系统。
