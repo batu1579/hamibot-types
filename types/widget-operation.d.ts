@@ -422,7 +422,7 @@ declare module 'widget-operation' {
              * @param {string} str `className` 要包含的字符串。
              * @return {this} 返回选择器自身以便链式调用。
              */
-            classNameContent(str: string): this;
+            classNameContents(str: string): this;
 
             /**
              * @description: 为当前选择器附加控件 `className` 需要以 `prefix` 开头的筛选条件。
