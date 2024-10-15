@@ -7,6 +7,10 @@
 
 ## [Unreleased]
 
+### Fixed
+
+- 修复 `hamibot.plan.model` 的拼写错误 [#20](https://github.com/batu1579/hamibot-types/issues/20)
+
 ## [0.1.4] - 2023-04-14
 
 ### Changed
