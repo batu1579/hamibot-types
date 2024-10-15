@@ -18,5 +18,8 @@
         ],
         "allowJs": true,
         "checkJs": true
-    }
+    },
+    "include": [
+        "types"
+    ]
 }

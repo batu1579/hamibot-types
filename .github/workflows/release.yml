@@ -33,6 +33,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Build Entrypoint
+        run: npm run build
+        
       - name: Wrap Up types into hamibot-types.tar.gz
         run: |
           tar zcvf ${{ vars.PACKAGE_FILE_NAME }} types
