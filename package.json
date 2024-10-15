@@ -1,6 +1,6 @@
 {
     "name": "hamibot-types",
-    "version": "0.1.4",
+    "version": "0.1.5",
     "description": "TypeScript definitions for hamibot",
     "homepage": "https://github.com/batu1579/hamibot-types",
     "license": "MPL-2.0",
@@ -25,5 +25,8 @@
         "@typescript-eslint/eslint-plugin": "^5.40.1",
         "@typescript-eslint/parser": "^5.40.1",
         "eslint": "^8.26.0"
+    },
+    "dependencies": {
+        "hamibot-types": "file:"
     }
 }

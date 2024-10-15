@@ -7,6 +7,15 @@
 
 ## [Unreleased]
 
+## [0.1.5] - 2024-10-15
+
+### Fixed
+
+- 修复 `device.release` 字段拼写错误的问题 [#15](https://github.com/batu1579/hamibot-types/issues/15)
+- 修复 `classNameContains()` 和 `UiSelector.classNameContains()` 方法的拼写错误 [#16](https://github.com/batu1579/hamibot-types/issues/16)
+- 添加 `UiObject` 中遗漏的 `indexInParent()` 方法
+- 修复 `hamibot.plan.model` 的拼写错误 [#20](https://github.com/batu1579/hamibot-types/issues/20)
+
 ## [0.1.4] - 2023-04-14
 
 ### Changed
@@ -92,7 +101,8 @@
 
 <!-- Versions -->
 
-[unreleased]: https://github.com/batu1579/hamibot-types/compare/v0.1.4...HEAD
+[unreleased]: https://github.com/batu1579/hamibot-types/compare/v0.1.5...HEAD
+[0.1.5]: https://github.com/batu1579/hamibot-types/compare/v0.1.4..v0.1.5
 [0.1.4]: https://github.com/batu1579/hamibot-types/compare/v0.1.3..v0.1.4
 [0.1.3]: https://github.com/batu1579/hamibot-types/compare/v0.1.2..v0.1.3
 [0.1.2]: https://github.com/batu1579/hamibot-types/compare/v0.1.1..v0.1.2
