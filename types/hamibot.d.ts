@@ -134,7 +134,7 @@ declare module 'hamibot' {
          *  - `flatRate`
          * （默认为 `free` ）
          */
-        readonly mode: 'free' | 'flatRate';
+        readonly model: 'free' | 'flatRate';
         /**
          * @description: 是否处于免费试用期（默认为 `false` ）。
          */
