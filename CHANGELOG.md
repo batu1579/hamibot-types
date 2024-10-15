@@ -7,10 +7,6 @@
 
 ## [Unreleased]
 
-### Fixed
-
-- 修复 `device.release` 字段拼写错误的问题 [#15](https://github.com/batu1579/hamibot-types/issues/15)
-
 ## [0.1.4] - 2023-04-14
 
 ### Changed
