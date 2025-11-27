@@ -9,6 +9,7 @@
 declare module 'dialogs' {
     import { EventEmitter } from 'events';
     import { Color, Image } from 'images';
+    import { View } from 'ui';
 
     global {
         /**
@@ -832,6 +833,11 @@ declare module 'dialogs' {
          * @description: 对话框输入框的默认输入内容
          */
         inputPrefill?: string;
+
+        /**
+         * @description: 设置个性化视图对象
+         */
+        customView?: View;
     }
 
     interface DialogProgress {

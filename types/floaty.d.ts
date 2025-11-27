@@ -158,6 +158,22 @@ declare module 'floaty' {
          * @description: 使悬浮窗被关闭时自动结束脚本运行。
          */
         exitOnClose(): void;
+
+        /**
+         * 根据id查找视图控件
+         * @param id 视图id
+         */
+        findView(id: string): View;
+
+        /**
+         * 请求焦点，使悬浮窗的文本框能够输入
+         */
+        requestFocus(): void;
+
+        /**
+         * 禁用焦点，使悬浮窗的文本框不能输入（不能弹起输入法）
+         */
+        disableFocus(): void;
     }
 
     class FloatyRawWindow {
@@ -247,5 +263,21 @@ declare module 'floaty' {
          * @description: 使悬浮窗被关闭时自动结束脚本运行。
          */
         exitOnClose(): void;
+
+        /**
+         * 根据id查找视图控件
+         * @param id 视图id
+         */
+        findView(id: string): View;
+
+        /**
+         * 请求焦点，使悬浮窗的文本框能够输入
+         */
+        requestFocus(): void;
+
+        /**
+         * 禁用焦点，使悬浮窗的文本框不能输入（不能弹起输入法）
+         */
+        disableFocus(): void;
     }
 }

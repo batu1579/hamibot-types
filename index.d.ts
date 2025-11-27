@@ -21,4 +21,5 @@
 /// <reference path="types/timers.d.ts" />
 /// <reference path="types/touch-operation.d.ts" />
 /// <reference path="types/ui.d.ts" />
+/// <reference path="types/util.d.ts" />
 /// <reference path="types/widget-operation.d.ts" />

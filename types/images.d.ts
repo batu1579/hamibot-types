@@ -35,6 +35,11 @@ declare module 'images' {
         const images: Images;
 
         /**
+         * @description: 表示一张图片，可以是截图的图片，或者本地读取的图片，或者从网络获取的图片。
+         */
+        const Image: Image;
+
+        /**
          * @description: 在 Hamibot 有两种方式表示一个颜色。
          * 
          * 一种是使用一个字符串 `#AARRGGBB` 或 `#RRGGBB` ，其中 AA 是 Alpha 通道（透明度）的值，RR 是 R 通道（红色）的值，GG 是 G 通道（绿色）的值，BB 是 B 通道（蓝色）的值。例如 `#ffffff` 表示白色， `#7F000000` 表示半透明的黑色。
@@ -1085,6 +1090,35 @@ declare module 'images' {
          * @return {MatchingResult} 搜索结果。
          */
         matchTemplate(img: BaseImage, template: BaseImage, options: TemplateOptions4): MatchingResult;
+
+        /**
+         * @description: 在图片中寻找圆（做霍夫圆变换）。
+         * @param {BaseImage} gray 灰度图片。
+         * @param {CirclesOptions4} [options] 查找选项。
+         * @return {Circle[] | null} 找到时返回找到的所有圆{x,y,radius}的数组，找不到时返回 null。
+         * @example
+         * ```typescript
+         * // 一个寻找圆的例子：
+            // 请求截图
+            requestScreenCapture();
+            // 截图
+            let img = captureScreen();
+            // 灰度化图片
+            let gray = images.grayscale(img);
+            // 找圆
+            let arr = findCircles(gray, {
+                dp: 1,
+                minDst: 80,
+                param1: 100,
+                param2: 100,
+                minRadius: 50,
+                maxRadius: 80,
+            });
+            // 回收图片
+            gray.recycle();
+         * ```
+         */
+        findCircles(gray: BaseImage, options?: CirclesOptions4): Circle[] | null;
     }
 
     class MatchingResult {
@@ -1194,6 +1228,11 @@ declare module 'images' {
          * @return {number} 点 (x, y) 处的像素的 ARGB 值。该值的格式为 0xAARRGGBB，是一个'32 位整数'（虽然 JavaScript 中并不区分整数类型和其他数值类型）。
          */
         pixel(x: number, y: number): number;
+
+        /**
+         * @description: 获取Bitmap对象
+         */
+        getBitmap(): object;
     }
 
     class Image extends BaseImage {
@@ -1215,6 +1254,23 @@ declare module 'images' {
          * @description: 纵坐标。
          */
         y: number;
+    }
+
+    class Circle {
+        /**
+         * @description: 横坐标。
+         */
+        x: number;
+
+        /**
+         * @description: 纵坐标。
+         */
+        y: number;
+
+        /**
+         * @description: 半径。
+         */
+        radius: number;
     }
 
     interface Colors {
@@ -1411,6 +1467,8 @@ declare module 'images' {
 
     type TemplateOptions4 = ColorOptions4 & TemplateOptions;
 
+    type CirclesOptions4 = FourItemRegionOptions & CirclesOptions;
+
     interface ThresholdOptions {
         /**
          * @description: 找色时颜色相似度的临界值（默认为 4 ），范围为 0-255（越小越相似，0 为颜色相等，255 为任何颜色都能匹配）。 `threshold` 和浮点数相似度（0.0-1.0）的换算为 ：
@@ -1459,6 +1517,38 @@ declare module 'images' {
          * @description: 找图结果最大数量（默认为 5 ）。
          */
         max?: number;
+    }
+
+    interface CirclesOptions {
+        /**
+         * @description: dp 是累加面与原始图像相比的分辨率的反比参数，dp=2 时累计面分辨率是元素图像的一半，宽高都缩减为原来的一半，dp=1 时，两者相同。默认为 1。
+         */
+        dp?: number;
+
+        /**
+         * @description: minDist 定义了两个圆心之间的最小距离。默认为图片高度的八分之一。
+         */
+        minDst?: number;
+
+        /**
+         * @description: param1 是 Canny 边缘检测的高阈值，低阈值被自动置为高阈值的一半。默认为 100，范围为 0-255。
+         */
+        param1?: number;
+
+        /**
+         * @description: param2 是累加平面对是否是圆的判定阈值，默认为 100。
+         */
+        param2?: number;
+
+        /**
+         * @description: 定义了检测到的圆的半径的最小值，默认为 0。
+         */
+        minRadius?: number;
+
+        /**
+         * @description: 定义了检测到的圆的半径的最大值，0 为不限制最大值，默认为 0。
+         */
+        maxRadius?: number;
     }
 
     type DetectAlgorithm = (
