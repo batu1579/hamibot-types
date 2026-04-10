@@ -137,6 +137,28 @@ declare module 'global' {
          * @return {object} android.content.Context 对象
          */
         const context: object;
+
+        /**
+         * @description: 导入一个Java类。
+         * @param {string} clazz 类名。
+         * @example
+         * ```typescript
+         * // 示例：导入 Java 的 ArrayList 类
+         * importClass("java.util.ArrayList");
+         * ```
+         */
+        function importClass(clazz: string): void;
+
+        /**
+         * @description: 导入Java包。
+         * @param {any} package 包名。
+         * @example
+         * ```typescript
+         * // 示例：导入 java.util 包
+         * importPackage(java.util);
+         * ```
+         */
+        function importPackage(package: any): void;
     }
 
     interface Runtime {

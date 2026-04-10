@@ -618,6 +618,13 @@ declare module 'widget-operation' {
             editable(b?: boolean): this;
 
             /**
+             * @description: 为当前选择器附加控件是否可见于用户界面。
+             * @param {boolean} [b] 控件是否可见于用户界面（默认为 `true` ）。
+             * @return {this} 返回选择器自身以便链式调用。
+             */
+            visibleToUser(b?: boolean): this;
+
+            /**
              * @description: 为当前选择器附加控件是否文本或输入框控件是否是多行显示的条件。
              * @param {boolean} [b] 文本或输入框控件是否是多行显示的（默认为 `true` ）。
              * @return {this} 返回选择器自身以便链式调用。
@@ -1063,9 +1070,19 @@ declare module 'widget-operation' {
             desc(): string;
 
             /**
+             * @description: 获取控件是否可见于用户界面。
+             */
+            visibleToUser(): boolean;
+
+            /**
              * @description: 控件的 `desc` 属性。
              */
             readonly contentDescription: string | null;
+
+            /**
+             * @description: 控件的 `editable` 属性。（控件是否可编辑）
+             */
+            readonly editable: boolean;
         }
 
         /**
